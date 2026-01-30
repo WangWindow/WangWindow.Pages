@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: WangWindow/WangWindow.Pages
+  branch: main
+  base_url: https://wangwindow.pages.dev
+  auth_endpoint: /api/auth
+
+local_backend: true
+
+media_folder: "src/assets"
+public_folder: "/src/assets"
+
+collections:
+  - name: "posts"
+    label: "博客"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    media_folder: "../../assets"
+    public_folder: "../../assets"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "摘要", name: "description", widget: "string" }
+      - { label: "发布日期", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "更新日期", name: "updatedDate", widget: "datetime", required: false, format: "YYYY-MM-DD" }
+      - { label: "封面图", name: "heroImage", widget: "image", required: false }
+      - { label: "标签", name: "tags", widget: "list", required: false }
+      - { label: "正文", name: "body", widget: "markdown" }
