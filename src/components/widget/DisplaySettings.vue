@@ -38,54 +38,69 @@ watch(hue, (v) => {
     </div>
     <div class="w-full h-6 px-1 bg-[oklch(0.80_0.10_0)] dark:bg-[oklch(0.70_0.10_0)] rounded select-none">
       <input aria-label="{{ i18n(I18nKey.themeColor) }}" type="range" min="0" max="360" v-model.number="hue"
-        class="slider" id="colorSlider" step="5" style="width: 100%" />
+        class="slider appearance-none h-6 w-full bg-(--color-selection-bar) transition-all duration-150 ease-in-out"
+        id="colorSlider" step="5" />
     </div>
   </div>
 </template>
 
-<style lang="stylus" scoped>
-#display-setting
-input[type="range"]
-    -webkit-appearance none
-    height 1.5rem
-    background-image var(--color-selection-bar)
-    transition background-image 0.15s ease-in-out
+<style scoped>
+#colorSlider {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 1.5rem;
+  background-image: var(--color-selection-bar);
+  transition: background-image 0.15s ease-in-out;
+}
 
-    /* Input Thumb */
-    &::-webkit-slider-thumb
-    -webkit-appearance none
-    height 1rem
-    width 0.5rem
-    border-radius 0.125rem
-    background rgba(255, 255, 255, 0.7)
-    box-shadow none
-    &:hover
-        background rgba(255, 255, 255, 0.8)
-    &:active
-        background rgba(255, 255, 255, 0.6)
+#colorSlider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 1rem;
+  width: 0.5rem;
+  border-radius: 0.125rem;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+}
 
-    &::-moz-range-thumb
-    -webkit-appearance none
-    height 1rem
-    width 0.5rem
-    border-radius 0.125rem
-    border-width 0
-    background rgba(255, 255, 255, 0.7)
-    box-shadow none
-    &:hover
-        background rgba(255, 255, 255, 0.8)
-    &:active
-        background rgba(255, 255, 255, 0.6)
+#colorSlider::-webkit-slider-thumb:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
 
-    &::-ms-thumb
-    -webkit-appearance none
-    height 1rem
-    width 0.5rem
-    border-radius 0.125rem
-    background rgba(255, 255, 255, 0.7)
-    box-shadow none
-    &:hover
-        background rgba(255, 255, 255, 0.8)
-    &:active
-        background rgba(255, 255, 255, 0.6)
+#colorSlider::-webkit-slider-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+#colorSlider::-moz-range-thumb {
+  height: 1rem;
+  width: 0.5rem;
+  border-radius: 0.125rem;
+  border-width: 0;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+}
+
+#colorSlider::-moz-range-thumb:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+#colorSlider::-moz-range-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+#colorSlider::-ms-thumb {
+  height: 1rem;
+  width: 0.5rem;
+  border-radius: 0.125rem;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+}
+
+#colorSlider::-ms-thumb:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+#colorSlider::-ms-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+}
 </style>

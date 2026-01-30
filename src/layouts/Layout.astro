@@ -520,9 +520,9 @@ function disableAnimation() {
         document.body.scrollTop > bannerHeight ||
         document.documentElement.scrollTop > bannerHeight
       ) {
-        backToTopBtn.classList.remove("hide");
+        backToTopBtn.classList.remove("translate-x-20", "scale-90", "opacity-0", "pointer-events-none");
       } else {
-        backToTopBtn.classList.add("hide");
+        backToTopBtn.classList.add("translate-x-20", "scale-90", "opacity-0", "pointer-events-none");
       }
     }
 
